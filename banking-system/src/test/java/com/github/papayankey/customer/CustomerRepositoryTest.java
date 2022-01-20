@@ -61,13 +61,13 @@ class CustomerRepositoryTest {
             int customerId = (int) entityManager.persistAndGetId(customer);
             entityManager.clear();
 
-            String firstName = "Chester";
-            customerRepository.updateCustomerByFirstName(customerId, firstName);
+            String lastName = "Waterfall";
+            customerRepository.updateCustomerByLastName(customerId, lastName);
 
             Customer updatedCustomer = entityManager.find(Customer.class, customerId);
 
             assertThat(updatedCustomer).isNotNull();
-            assertThat(updatedCustomer.getFirstName()).isEqualTo(firstName);
+            assertThat(updatedCustomer.getLastName()).isEqualTo(lastName);
         }
     }
 }
